@@ -4,14 +4,29 @@ Imports iNovation.Code.Encryption
 Imports iNovation.Code.Media
 Imports iNovation.Code.Sequel
 Imports iNovation.Code.Machine
+Imports QFactory.Service
 'Imports iNovation.Code.Web
 
 Public Class Form1
-#Region "LanguageC"
-    Private g As New iNovation.Code.Desktop '' General_Module.FormatWindow()
-    Public f As New iNovation.Code.Feedback '' Feedback.Feedback
+#Region "references"
+    ''    Private g As New iNovation.Code.Desktop '' General_Module.FormatWindow()
+    ''    Public f As New iNovation.Code.Feedback '' Feedback.Feedback
     ''    Public l As New Language.Languages
+    Private ReadOnly Property factory As New Factory
+    Private ReadOnly Property f As SoundsAdapter = factory.SoundAdapter
 
+#Region "KB"
+    Public ReadOnly Property font_alt As Font = New Font("Verdana", 12, GraphicsUnit.Point)
+    Public ReadOnly Property font_brand As Font = New Font("Miriam Fixed", 26, FontStyle.Bold, GraphicsUnit.Point)
+
+    Public ReadOnly Property font_ As Font = New Font("Verdana", 10, GraphicsUnit.Point)
+    Public ReadOnly Property theme_file As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\iNovation Digital Works\QFactory\Theme.txt"
+    Public ReadOnly Property theme_background_file As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\iNovation Digital Works\QFactory\ThemeBackground.txt"
+    Public ReadOnly Property source_file As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\iNovation Digital Works\QFactory\Source.txt"
+    Public ReadOnly Property top_rows_file As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\inovation digital works\QFactory\TopRows.txt"
+
+
+#End Region
 
 
 #Region "File Paths Variables"
@@ -45,19 +60,6 @@ Public Class Form1
 
 #End Region
 
-
-#Region "Database"
-    Public ReadOnly font_alt As Font = New Font("Verdana", 12, GraphicsUnit.Point)
-    Public ReadOnly font_brand As Font = New Font("Miriam Fixed", 26, FontStyle.Bold, GraphicsUnit.Point)
-
-    Public ReadOnly font_ As Font = New Font("Verdana", 10, GraphicsUnit.Point)
-    Public ReadOnly theme_file As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\iNovation Digital Works\QFactory\Theme.txt"
-    Public ReadOnly theme_background_file As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\iNovation Digital Works\QFactory\ThemeBackground.txt"
-    Public ReadOnly source_file As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\iNovation Digital Works\QFactory\Source.txt"
-    Public ReadOnly top_rows_file As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\inovation digital works\QFactory\TopRows.txt"
-
-
-#End Region
 
 #Region "In/Out Timer"
     Private Sub CloseButton_Click(sender As Object, e As EventArgs) Handles CloseButton.Click
@@ -587,6 +589,7 @@ Public Class Form1
             If max_ > 1000000 Then max_ = 1000000
             .Value = max_
         End With
+        SoundsMenuItem.Checked = SoundsOn
 
         textPassword.Focus()
     End Sub
@@ -646,6 +649,7 @@ Public Class Form1
     End Sub
 
     Private Sub bSet_Click(sender As Object, e As EventArgs) Handles bSet.Click
+        EnableControl(sender, False)
         '        If lColumns.Items.Count < 1 Then Exit Sub
         Clear(dQuery)
 
@@ -794,6 +798,7 @@ Public Class Form1
             Clipboard.SetText(str_)
         Catch ex As Exception
         End Try
+        EnableControl(sender)
     End Sub
 
     Private Sub dSource_KeyPress(sender As Object, e As KeyPressEventArgs) Handles dSource.KeyPress, dGroup.KeyPress, dTable.KeyPress, dQueryFromModule.KeyPress, dOutput.KeyPress, dLikeSelect.KeyPress, dFormatFor.KeyPress
@@ -801,17 +806,22 @@ Public Class Form1
     End Sub
 
     Private Sub bAdd_Click(sender As Object, e As EventArgs) Handles bAdd.Click
+        EnableControl(sender, False)
         ListsIncludeItem(dColumns, lColumns)
+        EnableControl(sender)
     End Sub
 
     Private Sub bRemove_Click(sender As Object, e As EventArgs) Handles bRemove.Click
+        EnableControl(sender, False)
         ListsIncludeItem(lColumns, dColumns)
+        EnableControl(sender)
     End Sub
 
     Private Sub bMax_Click(sender As Object, e As EventArgs) Handles bMax.Click
     End Sub
 
     Private Sub bAddCondition_Click(sender As Object, e As EventArgs) Handles bAddCondition.Click
+        EnableControl(sender, False)
         If dWhere.Items.Count < 1 Or dWhere.SelectedIndex < 0 Then Exit Sub
         If Content(dQueryFromModule).ToLower.Contains("conditional") Then
             ListsIncludeItem(dWhere, lWhere, True)
@@ -826,9 +836,11 @@ Public Class Form1
         Else
             lQueryOperators.Items.Add(dQueryOperators.SelectedItem)
         End If
+        EnableControl(sender)
     End Sub
 
     Private Sub bRemoveCondition_Click(sender As Object, e As EventArgs) Handles bRemoveCondition.Click
+        EnableControl(sender, False)
         Try
             lQueryOperators.SelectedIndex = lWhere.SelectedIndex
 
@@ -841,10 +853,13 @@ Public Class Form1
             ListsRemoveItem(lQueryOperators)
             lWhere.Focus()
         Catch
+        Finally
+            EnableControl(sender)
         End Try
     End Sub
 
     Private Sub bClearColumns_Click(sender As Object, e As EventArgs) Handles bClearColumns.Click
+        EnableControl(sender, False)
         Try
             With lColumns
                 .SelectedIndex = 0
@@ -858,11 +873,14 @@ Public Class Form1
                 Next
             End With
         Catch ex As Exception
+        Finally
+            EnableControl(sender)
 
         End Try
     End Sub
 
     Private Sub bClearSelected_Click(sender As Object, e As EventArgs) Handles bClearSelected.Click
+        EnableControl(sender, False)
         Try
             With lWhere
                 .SelectedIndex = 0
@@ -877,6 +895,8 @@ Public Class Form1
             End With
             Clear(lQueryOperators)
         Catch
+        Finally
+            EnableControl(sender)
         End Try
     End Sub
 
@@ -886,10 +906,12 @@ Public Class Form1
     End Sub
 
     Private Sub ClearTool_Click(sender As Object, e As EventArgs) Handles ClearTool.Click, bReset.Click
+        EnableControl(sender, False)
         bClearColumns_Click(sender, e)
         bClearSelected_Click(sender, e)
         'Clear(tMax)
         Clear(dQuery)
+        EnableControl(sender)
     End Sub
 
     Private Sub LogOutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogOutToolStripMenuItem.Click
@@ -931,5 +953,11 @@ Public Class Form1
         DisableControl(sender)
         BindProperty(dCatalog, QList("select name from sys.databases", "Data Source=" & Content(textDataSource) & "\SQLEXPRESS;Persist Security Info=True;User ID=" & Content(textUserID) & ";Password=" & Content(textPassword)), False)
         EnableControl(sender)
+    End Sub
+
+    Private Sub SoundsMenuItem_Click(sender As Object, e As EventArgs) Handles SoundsMenuItem.Click
+        Dim state As Boolean = If(SoundsMenuItem.Checked, False, True)
+        UpdateSoundsOn(state)
+        SoundsMenuItem.Checked = state
     End Sub
 End Class

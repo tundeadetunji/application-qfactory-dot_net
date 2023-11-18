@@ -205,6 +205,9 @@ Partial Class Form1
         Me.Label12 = New System.Windows.Forms.Label()
         Me.dCatalog = New System.Windows.Forms.ComboBox()
         Me.GetCatalogsButton = New System.Windows.Forms.Button()
+        Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.SoundsMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.grid, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gColumns, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.HelpCode.SuspendLayout()
@@ -219,6 +222,7 @@ Partial Class Form1
         CType(Me.BottomBorder, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TopBorder, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RightBorder, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'dTable
@@ -1614,6 +1618,26 @@ Partial Class Form1
         Me.GetCatalogsButton.Text = "Get Databases"
         Me.GetCatalogsButton.UseVisualStyleBackColor = True
         '
+        'NotifyIcon1
+        '
+        Me.NotifyIcon1.ContextMenuStrip = Me.ContextMenuStrip1
+        Me.NotifyIcon1.Icon = CType(resources.GetObject("NotifyIcon1.Icon"), System.Drawing.Icon)
+        Me.NotifyIcon1.Text = "QFactory"
+        Me.NotifyIcon1.Visible = True
+        '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SoundsMenuItem})
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(123, 26)
+        '
+        'SoundsMenuItem
+        '
+        Me.SoundsMenuItem.Name = "SoundsMenuItem"
+        Me.SoundsMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SoundsMenuItem.Text = "Sounds"
+        '
         'Form1
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -1717,6 +1741,7 @@ Partial Class Form1
         CType(Me.BottomBorder, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TopBorder, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RightBorder, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ContextMenuStrip1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1903,4 +1928,7 @@ Partial Class Form1
     Friend WithEvents Label12 As Label
     Friend WithEvents dCatalog As ComboBox
     Friend WithEvents GetCatalogsButton As Button
+    Friend WithEvents NotifyIcon1 As NotifyIcon
+    Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
+    Friend WithEvents SoundsMenuItem As ToolStripMenuItem
 End Class
