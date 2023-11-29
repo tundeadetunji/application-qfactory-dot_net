@@ -170,9 +170,12 @@ Public Class Form1
         'End With
     End Sub
     Public Sub GetTables() 'group_ As Group
-        Dim q__ As String = BuildSelectString("sys.Tables", {"name"}, Nothing, "name")
+        'Dim q__ As String = BuildSelectString("sys.Tables", {"name"}, Nothing, "name")
         'Display(grid, q__, Content(tString))
         Clear(dTable)
+        dTable.DataSource = Nothing
+        dTable.Items.Clear()
+
         Try
             ''    Clear(dTable)
             ''    Select Case Content(dGroup) ' group_
@@ -649,7 +652,6 @@ Public Class Form1
     End Sub
 
     Private Sub bSet_Click(sender As Object, e As EventArgs) Handles bSet.Click
-        EnableControl(sender, False)
         '        If lColumns.Items.Count < 1 Then Exit Sub
         Clear(dQuery)
 
@@ -798,7 +800,6 @@ Public Class Form1
             Clipboard.SetText(str_)
         Catch ex As Exception
         End Try
-        EnableControl(sender)
     End Sub
 
     Private Sub dSource_KeyPress(sender As Object, e As KeyPressEventArgs) Handles dSource.KeyPress, dGroup.KeyPress, dTable.KeyPress, dQueryFromModule.KeyPress, dOutput.KeyPress, dLikeSelect.KeyPress, dFormatFor.KeyPress
@@ -938,6 +939,7 @@ Public Class Form1
 
     Private Sub StartButton_Click(sender As Object, e As EventArgs) Handles StartButton.Click
         DisableControl(sender)
+        Clear(dTable)
         GetDataSource()
         GetTables() '(Content(dGroup).ToString)
         XFocusMe(dTable, dTable)
@@ -959,5 +961,9 @@ Public Class Form1
         Dim state As Boolean = If(SoundsMenuItem.Checked, False, True)
         UpdateSoundsOn(state)
         SoundsMenuItem.Checked = state
+    End Sub
+
+    Private Sub ConnectionStringVisibilityToggle_Click(sender As Object, e As EventArgs) Handles ConnectionStringVisibilityToggle.Click
+        tString.PasswordChar = If(tString.PasswordChar = "*", "", "*")
     End Sub
 End Class

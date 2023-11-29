@@ -15,12 +15,6 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_044FF4C6518C0FDCB84573A32E4D3CED"
-        "OwnerKey" = "8:_4A304340B21444C5B2ECA745A7CA0AA6"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_106D28DA65984CA88AFACEE2B5E1A2FB"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -40,7 +34,7 @@
         "Entry"
         {
         "MsmKey" = "8:_441D6AB5FAC7CFD7EE5A147E61CC760C"
-        "OwnerKey" = "8:_044FF4C6518C0FDCB84573A32E4D3CED"
+        "OwnerKey" = "8:_A9F859A80BBF0206F3912E74ACBD2F18"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -65,6 +59,12 @@
         {
         "MsmKey" = "8:_92E43A8B4BED492EAB3E72253BA02A33"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A9F859A80BBF0206F3912E74ACBD2F18"
+        "OwnerKey" = "8:_4A304340B21444C5B2ECA745A7CA0AA6"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -94,7 +94,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_044FF4C6518C0FDCB84573A32E4D3CED"
+        "OwnerKey" = "8:_A9F859A80BBF0206F3912E74ACBD2F18"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -204,37 +204,6 @@
         }
         "File"
         {
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_044FF4C6518C0FDCB84573A32E4D3CED"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Code, Version=3.2.3.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_044FF4C6518C0FDCB84573A32E4D3CED"
-                    {
-                    "Name" = "8:Code.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Code.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_79EA6AEB3472430885A90E6FE7B537B3"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_106D28DA65984CA88AFACEE2B5E1A2FB"
             {
             "SourcePath" = "8:..\\InstallationFiles\\InstallDir\\newfolder.ico"
@@ -375,6 +344,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A9F859A80BBF0206F3912E74ACBD2F18"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Code, Version=3.2.4.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_A9F859A80BBF0206F3912E74ACBD2F18"
+                    {
+                    "Name" = "8:Code.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Code.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_79EA6AEB3472430885A90E6FE7B537B3"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BA3481DC88C04E9ABA5D49DEBC3006A8"
@@ -527,7 +527,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:QFactory"
         "ProductCode" = "8:{1515291F-6049-4145-9AF6-E7BEE2DEF8DC}"
-        "PackageCode" = "8:{2F86D1BE-7D74-4F06-96CC-CD655B3453B0}"
+        "PackageCode" = "8:{C69FA865-DAF8-42D9-A4A2-8D8E14FD0B79}"
         "UpgradeCode" = "8:{20BDCE82-4243-4B19-B5B3-A08BA123F006}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -544,7 +544,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:https://www.inovationware.com"
-        "ARPPRODUCTICON" = "8:"
+        "ARPPRODUCTICON" = "8:_106D28DA65984CA88AFACEE2B5E1A2FB"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"

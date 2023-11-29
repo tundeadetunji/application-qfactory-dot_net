@@ -208,6 +208,7 @@ Partial Class Form1
         Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.SoundsMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConnectionStringVisibilityToggle = New System.Windows.Forms.PictureBox()
         CType(Me.grid, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gColumns, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.HelpCode.SuspendLayout()
@@ -223,6 +224,7 @@ Partial Class Form1
         CType(Me.TopBorder, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RightBorder, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
+        CType(Me.ConnectionStringVisibilityToggle, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'dTable
@@ -325,6 +327,7 @@ Partial Class Form1
         Me.tString.Location = New System.Drawing.Point(630, 80)
         Me.tString.Multiline = True
         Me.tString.Name = "tString"
+        Me.tString.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.tString.ReadOnly = True
         Me.tString.ScrollBars = System.Windows.Forms.ScrollBars.Both
         Me.tString.Size = New System.Drawing.Size(395, 52)
@@ -1635,8 +1638,20 @@ Partial Class Form1
         'SoundsMenuItem
         '
         Me.SoundsMenuItem.Name = "SoundsMenuItem"
-        Me.SoundsMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SoundsMenuItem.Size = New System.Drawing.Size(122, 22)
         Me.SoundsMenuItem.Text = "Sounds"
+        '
+        'ConnectionStringVisibilityToggle
+        '
+        Me.ConnectionStringVisibilityToggle.BackColor = System.Drawing.Color.Transparent
+        Me.ConnectionStringVisibilityToggle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ConnectionStringVisibilityToggle.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ConnectionStringVisibilityToggle.Image = Global.QFactory.My.Resources.Resources.search
+        Me.ConnectionStringVisibilityToggle.Location = New System.Drawing.Point(1031, 90)
+        Me.ConnectionStringVisibilityToggle.Name = "ConnectionStringVisibilityToggle"
+        Me.ConnectionStringVisibilityToggle.Size = New System.Drawing.Size(32, 32)
+        Me.ConnectionStringVisibilityToggle.TabIndex = 168372
+        Me.ConnectionStringVisibilityToggle.TabStop = False
         '
         'Form1
         '
@@ -1646,6 +1661,7 @@ Partial Class Form1
         Me.BackgroundImage = Global.QFactory.My.Resources.Resources.f138e20a9a168b04330215809a82348d
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1228, 634)
+        Me.Controls.Add(Me.ConnectionStringVisibilityToggle)
         Me.Controls.Add(Me.GetCatalogsButton)
         Me.Controls.Add(Me.dCatalog)
         Me.Controls.Add(Me.Label12)
@@ -1742,6 +1758,7 @@ Partial Class Form1
         CType(Me.TopBorder, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RightBorder, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ContextMenuStrip1.ResumeLayout(False)
+        CType(Me.ConnectionStringVisibilityToggle, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1931,4 +1948,5 @@ Partial Class Form1
     Friend WithEvents NotifyIcon1 As NotifyIcon
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
     Friend WithEvents SoundsMenuItem As ToolStripMenuItem
+    Friend WithEvents ConnectionStringVisibilityToggle As PictureBox
 End Class

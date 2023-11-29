@@ -884,6 +884,9 @@
         //8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//4AA//+AAP///+f//w==
 </value>
   </data>
+  <metadata name="ConnectionStringVisibilityToggle.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

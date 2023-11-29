@@ -4,18 +4,38 @@ Public Class SoundsAdapter
 
     Public Shared Sub say(message As String, Optional async As Boolean = True)
         If Not SoundsOn Then Return
-        f.say(message, async)
+        Try
+            f.say(message, async)
+
+        Catch ex As Exception
+
+        End Try
 
     End Sub
     Public Shared Sub welcome(message As String, Optional sound As String = Nothing)
         If Not SoundsOn Then Return
-        f.welcome(message, sound)
+        Try
+            f.welcome(message, sound)
+
+        Catch ex As Exception
+
+        End Try
     End Sub
     Public Shared Sub bye(dialog As Form, str As String, Optional dont_use_voice_feedback As Boolean = False)
-        f.bye(dialog, If(SoundsOn, str, ""), dont_use_voice_feedback)
+        Try
+            f.bye(dialog, If(SoundsOn, str, ""), dont_use_voice_feedback)
+
+        Catch ex As Exception
+
+        End Try
     End Sub
     Public Shared Sub bye(dialog As Form, str As String, sound_ As String, Optional dont_use_voice_feedback As Boolean = False)
-        f.bye(dialog, If(SoundsOn, str, ""), sound_, dont_use_voice_feedback)
+        Try
+            f.bye(dialog, If(SoundsOn, str, ""), sound_, dont_use_voice_feedback)
+
+        Catch ex As Exception
+
+        End Try
     End Sub
 
 
